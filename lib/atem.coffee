@@ -1,3 +1,5 @@
+console.log 'THIS MODULE IS DEPRECATED! See: https://github.com/applest/node-applest-atem'
+
 dgram = require 'dgram'
 
 ###
@@ -310,7 +312,7 @@ class ATEM
   # CAMI command structure:    CAMI    [01=buttons, 02=vol, 04=pan (toggle bits)] - [input number, 0-…] - [buttons] - [buttons] - [vol] - [vol] - [pan] - [pan]
   changeAudioChannelStatus: (channel, status) ->
     @_sendCommand("CAMI", [0x01, 0x00, channel >> 8, channel & 0xFF, status, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00])
-  
+
   changeAuxInput: (aux, input) ->
     @_sendCommand("CAuS", [1, aux-1, input >> 8, input & 0xFF]);
 
